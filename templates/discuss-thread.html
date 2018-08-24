@@ -1,0 +1,5 @@
+{% if config.DISQUS_ENABLED %}
+  <div class="discuss-thread">
+    {% include 'discuss/disqus.html' ignore missing %}
+  </div>
+{% endif %}

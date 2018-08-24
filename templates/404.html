@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+  {{ super() }}
+  <title>{{ 'Page Not Found - ' + site.title }}</title>
+{% endblock %}
+
+{% block body %}
+  <div class="text-center">
+    <p>The page is not found.</p>
+  </div>
+{% endblock %}

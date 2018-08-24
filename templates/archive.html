@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+  {{ super() }}
+  <title>{{ archive_name + ' - ' + archive_type + ' - ' + site.title }}</title>
+{% endblock %}
+
+{% block main %}
+  <div class="entry">
+    <article>
+      <h1>{{ archive_type }}: {{ archive_name }}</h1>
+
+      {% if not entries %}
+        <div>
+          <p>{{ 'There is nothing here.' if archive_type|lower != 'search' else 'No results.' }}</p>
+        </div>
+      {% else %}
+
+        <table class="table-clean">
+          <tbody>
+          {% for entry in entries %}
+            <tr {%- if entry.meta.language %} lang="{{ entry.meta.language }}" {%- endif %}>
+              <td style="font-size: 85%">{{ entry.created.strftime('%Y.%m.%d') if entry.created else '' }}</td>
+              <td><a href="{{ entry.url }}">{{ entry.title }}</a></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+
+      {% endif %}
+    </article>
+  </div>
+{% endblock %}

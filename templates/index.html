@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+  {{ super() }}
+  {% if request.path == '/' %}
+    <title>{{ site.title }}</title>
+  {% else %}
+    <title>{{ 'Page ' + request.path.rstrip('/').rsplit('/', 1)[-1] + ' - ' + site.title }}</title>
+  {% endif %}
+{% endblock %}
+
+{% block main %}
+  {% for entry in entries %}
+    <article class="article" {%- if entry.meta.language %} lang="{{ entry.meta.language }}" {%- endif %}>
+      <h2 class="article-title"><a href="{{ entry.url }}">{{ entry.title }}</a></h2>
+      <span class="date">创建于 {{ entry.created.strftime('%Y-%m-%d') }}</span>
+      {%- if entry.updated and entry.updated != entry.created -%}
+        <span class="date">，更新于 {{ entry.updated.strftime('%Y-%m-%d') }}</span>
+      {% endif %}
+      <div class="content">
+        {{ entry.preview|safe }}
+
+        {% if entry.has_more_content %}
+          <p>……</p>
+          <p><a href="{{ entry.url }}">阅读更多</a></p>
+        {% endif %}
+      </div>
+    </article>
+  {% endfor %}
+
+  <div class="article pager-container">
+    {% if prev_url or next_url %}
+      <ul class="pager">
+        {% if next_url %}
+          <li class="previous">
+            <a href="{{ next_url }}" class="button">上一页</a>
+          </li>
+        {% endif %}
+        {% if prev_url %}
+          <li class="next">
+            <a href="{{ prev_url }}" class="button">下一页</a>
+          </li>
+        {% endif %}
+      </ul>
+    {% endif %}
+  </div>
+{% endblock %}

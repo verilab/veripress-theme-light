@@ -1,0 +1,23 @@
+<div class="sidebar-widgets">
+  <div class="widget">
+    <h4>导航</h4>
+    <nav>
+      <ul>
+        {% include ['custom/nav.html', 'nav.html'] ignore missing %}
+      </ul>
+    </nav>
+  </div>
+  <div class="widget hidden-mobile">
+    <h4>最近文章</h4>
+    <ul>
+      {% for entry in storage.get_posts()[:5] %}
+        <li><a href="{{ request.script_root + entry.unique_key }}">{{ entry.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% for widget in storage.get_widgets(position='sidebar') %}
+    <div class="widget" {%- if widget.meta.language %} lang="{{ widget.meta.language }}" {%- endif %}>
+      {{ widget|content|safe }}
+    </div>
+  {% endfor %}
+</div>
