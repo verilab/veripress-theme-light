@@ -10,6 +10,11 @@
 {% endblock %}
 
 {% block main %}
+  {% if not entries %}
+    <div class="article">
+      <p>😶这里是空的。</p>
+    </div>
+  {% endif %}
   {% for entry in entries %}
     <article class="article" {%- if entry.meta.language %} lang="{{ entry.meta.language }}" {%- endif %}>
       <h2 class="article-title"><a href="{{ entry.url }}">{{ entry.title }}</a></h2>
