@@ -8,16 +8,7 @@
 {% block main %}
   <article class="article" {%- if entry.meta.language %} lang="{{ entry.meta.language }}" {%- endif %}>
     <h1 class="article-title">{{ entry.title }}</h1>
-    {% if entry.created %}
-      <span class="date">创建于
-        <time datetime="{{ entry.created.strftime('%Y-%m-%d') }}">{{ entry.created.strftime('%Y-%m-%d') }}</time>
-      </span>
-    {% endif %}
-    {%- if entry.updated and entry.updated != entry.created -%}
-      <span class="date">，更新于
-        <time datetime="{{ entry.updated.strftime('%Y-%m-%d') }}">{{ entry.updated.strftime('%Y-%m-%d') }}</time>
-      </span>
-    {% endif %}
+    {% include ['custom/meta.html', 'meta.html'] ignore missing %}
     <div class="content">
       {{ entry.content|safe }}
     </div>

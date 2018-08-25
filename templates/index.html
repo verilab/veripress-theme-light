@@ -13,10 +13,7 @@
   {% for entry in entries %}
     <article class="article" {%- if entry.meta.language %} lang="{{ entry.meta.language }}" {%- endif %}>
       <h2 class="article-title"><a href="{{ entry.url }}">{{ entry.title }}</a></h2>
-      <span class="date">创建于 {{ entry.created.strftime('%Y-%m-%d') }}</span>
-      {%- if entry.updated and entry.updated != entry.created -%}
-        <span class="date">，更新于 {{ entry.updated.strftime('%Y-%m-%d') }}</span>
-      {% endif %}
+      {% include ['custom/meta.html', 'meta.html'] ignore missing %}
       <div class="content">
         {{ entry.preview|safe }}
 

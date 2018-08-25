@@ -1,6 +1,6 @@
 # VeriPress Theme "Light"
 
-**Light** is a light-weight theme for VeriPress, optimizing for blog. The style was copied from previous LiveChat official blog.
+**Light** is a light-weight theme for [VeriPress](https://github.com/veripress/veripress), optimizing for blog. The style was copied from previous LiveChat official blog.
 
 # Installation
 
