@@ -370,3 +370,41 @@ code, pre {
 .footer p {
     margin: 2px 0;
 }
+
+@media print {
+    body {
+        color: #000;
+    }
+
+    .header,
+    .sidebar,
+    .footer,
+    .discuss-thread,
+    .anchor,
+    .meta,
+    .hidden-print {
+        display: none;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+    .article {
+        padding: 0;
+    }
+
+    .article a {
+        color: #2c3e50 !important;
+    }
+
+    .content {
+        display: block;
+        overflow: auto;
+    }
+
+    @page {
+        size: auto;
+        margin: auto;
+    }
+}
