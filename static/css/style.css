@@ -148,8 +148,8 @@ code, pre {
 .content h6 a.anchor::before {
     display: none;
     content: "#";
-    margin-left: -.87em;
-    padding-right: .23em;
+    position: absolute;
+    transform: translateX(-0.65em);
 }
 
 .content h1:hover a.anchor::before,
