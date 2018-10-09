@@ -377,7 +377,10 @@ img {
 
 @media print {
     body {
-        color: #000;
+        background-color: transparent !important;
+        color: #000 !important;
+        overflow: visible !important;
+        position: absolute;
     }
 
     .header,
@@ -387,15 +390,15 @@ img {
     .anchor,
     .meta,
     .hidden-print {
-        display: none;
+        display: none !important;
     }
 
     .main {
-        width: 100%;
+        width: 100% !important;
     }
 
     .article {
-        padding: 0;
+        padding: 0 !important;
     }
 
     .article a {
@@ -403,12 +406,15 @@ img {
     }
 
     .content {
-        display: block;
-        overflow: auto;
+        display: block !important;
+        overflow: visible !important;
+        position: static !important;
+        height: auto !important;
+        width: auto !important;
     }
 
     @page {
-        size: auto;
-        margin: auto;
+        size: auto !important;
+        margin: auto !important;
     }
 }
