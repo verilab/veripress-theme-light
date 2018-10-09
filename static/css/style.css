@@ -36,6 +36,10 @@ code, pre {
     font-size: 90%;
 }
 
+img {
+    max-width: 100%;
+}
+
 .container {
     display: flex;
     flex-direction: column;
