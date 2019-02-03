@@ -19,13 +19,13 @@
     <article class="article" {%- if entry.meta.language %} lang="{{ entry.meta.language }}" {%- endif %}>
       <h2 class="article-title"><a href="{{ entry.url }}">{{ entry.title }}</a></h2>
       {% include ['custom/meta.html', 'meta.html'] ignore missing %}
-      <div class="content">
+      <div class="content limit-height">
         {{ entry.preview|safe }}
-
+        <div class="hide-article-box"></div>
         {% if entry.has_more_content %}
           <p>……</p>
-          <p><a href="{{ entry.url }}">阅读更多</a></p>
         {% endif %}
+        <a href="{{ entry.url }}" class="fill-link">link</a>
       </div>
     </article>
   {% endfor %}

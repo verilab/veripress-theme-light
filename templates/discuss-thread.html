@@ -1,5 +1,5 @@
 {% if config.DISQUS_ENABLED %}
-  <div class="discuss-thread">
-    {% include 'discuss/disqus.html' ignore missing %}
-  </div>
+  {% include 'discuss/disqus.html' ignore missing %}
+{% elif config.WILDFIRE_ENABLED %}
+  {% include 'discuss/wildfire.html' ignore missing %}
 {% endif %}

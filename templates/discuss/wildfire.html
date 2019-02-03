@@ -1,0 +1,23 @@
+<div class="wildfire_thread"></div>
+<script>
+    // Replace the configs with your own configs
+    //
+    // databaseProvider: (String) 'wilddog' or 'firebase'
+    // databaseConfig: (Object) the config object copied from your database console
+    // pageURL(optional): (String) default value is current URL
+    // pageTitle(optional): (String) default value is current document title
+    // theme(optional): (String) 'light'(default) or 'dark'
+    // locale(optional): (String) 'en'(default) or 'zh-CN'
+    // defaultAvatarURL(optional): (String) default avatar is a cute fire fighter :-D
+    //
+    var wildfireConfig = () => ({
+        databaseProvider: '{{ config.WILDFIRE_DATABASE_PROVIDER }}',
+        databaseConfig: {{ config.WILDFIRE_DATABASE_CONFIG | safe }},
+        pageURL: '{{ entry.url }}',
+        pageTitle: `{{ entry.title }}`,
+        theme: 'light',
+        locale: 'zh-CN',
+        // defaultAvatarURL: 'https://image.flaticon.com/icons/svg/621/621863.svg'
+    })
+</script>
+<script src="https://unpkg.com/@chengkang/wildfire/dist/wildfire.auto.js"></script>
