@@ -25,7 +25,7 @@
         {% if entry.has_more_content %}
           <p>……</p>
         {% endif %}
-        <a href="{{ entry.url }}" class="fill-link">link</a>
+        <a href="{{ entry.url }}" class="fill-link">{{ entry.title }}</a>
       </div>
     </article>
   {% endfor %}
